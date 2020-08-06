@@ -803,6 +803,10 @@ public struct Table : SchemaType {
     public static let identifier = "TABLE"
 
     public var clauses: QueryClauses
+    
+    public var name: String {
+        return clauses.from.name
+    }
 
     public init(_ name: String, database: String? = nil) {
         clauses = QueryClauses(name, alias: nil, database: database)
