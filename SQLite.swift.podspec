@@ -21,10 +21,12 @@ Pod::Spec.new do |s|
   ios_deployment_target = '11.0'
   tvos_deployment_target = '11.0'
   osx_deployment_target = '10.13'
+  watchos_deployment_target = '4.0'
 
   s.ios.deployment_target = ios_deployment_target
   s.tvos.deployment_target = tvos_deployment_target
   s.osx.deployment_target = osx_deployment_target
+  s.watchos.deployment_target = watchos_deployment_target
 
   s.subspec 'standard' do |ss|
     ss.source_files = 'Sources/{SQLite,SQLiteObjc}/**/*.{c,h,m,swift}'
