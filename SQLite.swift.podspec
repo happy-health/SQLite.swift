@@ -42,24 +42,4 @@ Pod::Spec.new do |s|
       test_spec.osx.deployment_target = osx_deployment_target
     end
   end
-
-  s.subspec 'standalone' do |ss|
-    ss.source_files = 'Sources/{SQLite,SQLiteObjc}/**/*.{c,h,m,swift}'
-    ss.exclude_files = 'Sources/**/Cipher.swift'
-    ss.private_header_files = 'Sources/SQLiteObjc/fts3_tokenizer.h'
-
-    ss.xcconfig = {
-      'OTHER_SWIFT_FLAGS' => '$(inherited) -DSQLITE_SWIFT_STANDALONE',
-      'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) SQLITE_SWIFT_STANDALONE=1'
-    }
-    ss.dependency 'sqlite3'
-
-    ss.test_spec 'tests' do |test_spec|
-      test_spec.resources = 'Tests/SQLiteTests/fixtures/*'
-      test_spec.source_files = 'Tests/SQLiteTests/*.swift'
-      test_spec.ios.deployment_target = ios_deployment_target
-      test_spec.tvos.deployment_target = tvos_deployment_target
-      test_spec.osx.deployment_target = osx_deployment_target
-    end
-  end
 end
